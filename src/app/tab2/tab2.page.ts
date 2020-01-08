@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -13,7 +13,7 @@ export class Tab2Page {
   loginForm: FormGroup;
   
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private route:ActivatedRoute) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
       password: [Validators.required]
@@ -30,11 +30,11 @@ export class Tab2Page {
     {
       alert('Please enter details'); 
     } else {
-      alert('Logged Succesfully')
+      alert('Logged Succesfully');
       console.log("Name = " + this.username);
       console.log("Password = " + this.password); 
     }
-    this.router.navigate(['tabs/tab2/camera']);
+    this.router.navigateByUrl('tabs/tab2/camera');
   }
 
   register(){

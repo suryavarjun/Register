@@ -8,38 +8,51 @@ import { Router } from '@angular/router';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  firstname:string='';
-  pnumber:number=0;
+  fullname:string='';
+  phonenumber:number=0;
   email:any='';
   password:any='';
-  registerform: FormGroup;
+  registerForm: FormGroup;
+  isSubmitted: true;
+  
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.registerform= this.formBuilder.group({
-      firstname: ['', Validators.compose([Validators.required])],
-      pnumber:['', Validators.compose([Validators.maxLength(10), Validators.required])],
+  constructor(private formBuilder: FormBuilder, private router: Router, 
+    
+    ) {
+    this.registerForm= this.formBuilder.group({
+      fullname:['', Validators.compose([Validators.required])],
+      phonenumber:['', Validators.compose([Validators.maxLength(10), Validators.required])],
       email:[Validators.required],
       password: [Validators.required]
     });
-
+     
     // this.registerform = new FormGroup({
     //   firstName: new FormControl()
     // });
 
-  }
+   }
 
   doSubmit(){
-    this.firstname='';
-    this.pnumber=0;
+    this.fullname='';
+    this.phonenumber=0;
     this.email='';
     this.password='';
-  }
+    this.isSubmitted = true;
+    // if (!this.registerForm.valid) {
+    //   console.log('Please provide all the required values!')
+    //   return false;
+    // } else {
+      console.log(this.registerForm.value)
+    }
+     
 
-  regist(){
-    if(this.firstname ==''|| this.pnumber == 0 ||this.email ==''|| this.password ==''){
-      alert('Enter All Details');
+  regist() {
+    if(this.fullname == '' ||  this.phonenumber == 0 || this.email ==''|| this.password == '')
+    {
+      alert('Please enter details');
     } else {
       alert('Succesfully Registred');
+      console.log(this.registerForm.value);
     }
     this.router.navigate(['tabs/tab2']);
   }

@@ -17,7 +17,7 @@
 
    <ion-item>
       <ion-label>Password:</ion-label>
-      <ion-input  class="form-control" name="password" formControlName="password" [(ngModel)]="password"></ion-input>
+      <ion-input  class="form-control" type="password" name="password" formControlName="password" [(ngModel)]="password"></ion-input>
       <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Enter Password</div>
    </ion-item>
    <br>

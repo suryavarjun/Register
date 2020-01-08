@@ -18,7 +18,7 @@ const routes: Routes = [
     },
     {
       path:'camera',
-      loadChildren:'./camera/camera.module#CameraPageModule'
+      loadChildren:'../camera/camera.module#CameraPageModule'
     }]
   }
 ];

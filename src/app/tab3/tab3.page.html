@@ -9,26 +9,48 @@
 <ion-content>
   
   <form [formGroup]="registerForm" (ngSubmit)="doSubmit()">
+    <ion-list>
     <div class="form-group">
     <ion-item>
-      <ion-label>First Name:</ion-label>
-      <ion-input class="form-control" type="text" name="name" formControlName="firstname" [(ngModel)]="firstname"></ion-input>
+      <ion-label>Full Name:</ion-label>
+      <ion-input class="form-control" type="text" required name="name" formControlName="fullname" [(ngModel)]="fullname"></ion-input>
     </ion-item>
+    <div *ngFor="let error of errorMessages.fullname">
+    <ng-container  *ngIf="fullname.hasError(error.type) && (fullname.dirty || fullname.touched)">
+        <small class="error-message">Name is Requires</small>
+    </ng-container>
+    </div>
     <ion-item>
       <ion-label>Phone Number:</ion-label>
-      <ion-input class="form-control" type="number" formControlName="phonenumber" [(ngModel)]="pnumber"></ion-input>
+      <ion-input class="form-control" type="number" required formControlName="phonenumber" [(ngModel)]="phonenumber"></ion-input>
     </ion-item>
+    <div *ngFor="let error of errorMessages.phonenumber">
+    <ng-container  *ngIf="phonenumber.hasError(error.type) && (phonenumber.dirty || phonenumber.touched)">
+        <small class="error-message">Phone Number is Requires</small>
+    </ng-container>
+        </div>
     <ion-item>
-        <ion-label>Email:</ion-label>
-        <ion-input class="form-control" type="text" formControlName="email" [(ngModel)]="email"></ion-input>
+      <ion-label>Email:</ion-label>
+        <ion-input class="form-control" type="text" required formControlName="email" [(ngModel)]="email"></ion-input>
     </ion-item>
+    <div *ngFor="let error of errorMessages.email">
+    <ng-container  *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+        <small class="error-message">Email is Requires</small>
+    </ng-container>
+        </div>
     <ion-item>
-        <ion-label>Password:</ion-label>
-        <ion-input class="form-control" type="password" formControlName="password" [(ngModel)]="password"></ion-input>
+       <ion-label>Password:</ion-label>
+        <ion-input class="form-control" type="password" required formControlName="password" [(ngModel)]="password"></ion-input>
+        <div *ngFor="let error of errorMessages.password">
+    <ng-container  *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+        <small class="error-message">Password is Requires</small>
+    </ng-container>
+        </div>
     </ion-item>     
 
-    <ion-button type="submit" [disabled]="buttonDisabled" (click)="regist()">Register</ion-button>
+    <ion-button type="submit" [disabled]="!registerForm.valid" (click)="regist()">Register</ion-button>
   </div>
+  </ion-list>
   </form>
   
 </ion-content>
