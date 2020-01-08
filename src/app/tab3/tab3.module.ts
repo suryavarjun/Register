@@ -5,20 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
 
-const routes: Routes = [
-  {
-    path: '',
-    children:[{
-      path:'',
-      component:Tab3Page
-    },
-    {
-      path:'tab2',
-      loadChildren:'../tab2/tab2.module#Tab2PageModule'
-    }]
-  }
-];
-
 @NgModule({
   imports: [
     IonicModule,

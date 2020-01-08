@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-       path: 'camera',
+    path: 'camera',
     loadChildren: () => import('./camera/camera.module').then( m => m.CameraPageModule)
   }
 ];

@@ -18,7 +18,7 @@ const routes: Routes = [
     },
     {
       path:'camera',
-      loadChildren:'../camera/camera.module#CameraPageModule'
+      loadChildren:'CameraPageModule'
     }]
   }
 ];
@@ -30,7 +30,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule ,
-    RouterModule.forChild([{ path: '', component: Tab2Page }])
+    RouterModule.forChild(routes)
   ],
   declarations: [Tab2Page]
 })

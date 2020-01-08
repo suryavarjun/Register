@@ -38,6 +38,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'camera',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../camera/camera.module').then(m => m.CameraPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

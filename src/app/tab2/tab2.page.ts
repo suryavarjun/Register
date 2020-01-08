@@ -34,7 +34,7 @@ export class Tab2Page {
       console.log("Name = " + this.username);
       console.log("Password = " + this.password); 
     }
-    this.router.navigateByUrl('tabs/tab2/camera');
+    this.router.navigateByUrl('tabs/camera');
   }
 
   register(){

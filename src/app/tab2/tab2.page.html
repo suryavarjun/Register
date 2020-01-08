@@ -8,22 +8,21 @@
 
 <ion-content>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    
    <ion-item>
-    <ion-label>Name:</ion-label>
+    <ion-label position="floating">Name:</ion-label>
     <ion-input  class="form-control" type="text" name="email" formControlName="username" [(ngModel)]="username"></ion-input>
     <div class="error" *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">Enter Username</div>
    </ion-item>
 
    <ion-item>
-      <ion-label>Password:</ion-label>
+      <ion-label position="floating">Password:</ion-label>
       <ion-input  class="form-control" type="password" name="password" formControlName="password" [(ngModel)]="password"></ion-input>
       <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Enter Password</div>
    </ion-item>
    <br>
    <ion-button expand="full" type="submit" (click)="login()">Login</ion-button><br>
    <ion-button class="but" color="light" expand="full" (click)="register()">New Register</ion-button>
-  </div>
   </form>
 
 </ion-content>
